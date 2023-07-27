@@ -1,67 +1,163 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calcul du FFMI</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="container">
-        <h1>Fat Free Mass Index (FFMI)</h1>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit expedita illum perspiciatis laborum eius veritatis deleniti?<br> 
-            Iste accusantium perferendis explicabo. Nostrum eaque itaque libero nemo dignissimos vero ex dolor. Culpa.
-        </p>
-        <div class="ffmi-bloc">
-            <div class="display">
-                <h1> Calculateur FFMI</h1>
-                <p id="result">
-                    20.0
-                </p>
-                <p id="category">
-                    Poids Normal
-                </p>
+    <section>
+      <div class="container text-center">
+          <div class="ffmi-info row shadow-sm p-3 mb-5 bg-body-tertiary rounded ">
+            <h1>Fat free mass index (FFMI)</h1>
+            <p>
+              Nous sommes tous familiers avec l'IMC, qui est utilisé pour évaluer notre santé. Cependant, cette mesure peut être 
+              limitée car elle ne prend en compte que deux facteurs : la taille et le poids. Cela soulève des questions : est-ce qu'une personne ayant 
+              un IMC optimal est forcément en bonne santé ? Est-ce 
+              qu'une personne ayant un IMC élevé est automatiquement en mauvaise santé ? En réalité, l'IMC ne donne pas une image complète de la santé. C'est là que le FFMI (Indice de Masse Musculaire Sans Gras) intervient. Le FFMI prend en compte quatre facteurs : le poids, la taille, le sexe et le taux de masse grasse. Grâce à un calcul spécifique et des plages de valeurs pour chaque sexe, le FFMI permet d'avoir une évaluation plus précise et objective de la composition corporelle. Ainsi, nous pouvons désormais obtenir des indications plus fiables sur notre santé.
+            </p>
+            <h1>Tableaux FFMI</h1>
+  
+            <div class="col">            
+              <h2>👨 Hommes</h2>
+              <table class="col table">
+                  <tr>
+                      <th>FFMI</th>
+                      <th>Graisse corporelle</th>
+                      <th>Description</th>
+                  </tr>
+                  <tr>
+                      <td>17-18</td>
+                      <td>10-18%</td>
+                      <td>Homme maigre</td>
+                  </tr>
+                  <tr>
+                      <td>18-20</td>
+                      <td>20-27%</td>
+                      <td>Homme moyen</td>
+                  </tr>
+                  <tr>
+                      <td>19-21</td>
+                      <td>25-40%</td>
+                      <td>Homme en surpoids</td>
+                  </tr>
+                  <tr>
+                      <td>20-21</td>
+                      <td>10-18%</td>
+                      <td>Athlète / Utilisateur de salle de sport intermédiaire</td>
+                  </tr>
+                  <tr>
+                      <td>22-23</td>
+                      <td>6-12%</td>
+                      <td>Utilisateur avancé de salle de sport</td>
+                  </tr>
+                  <tr>
+                      <td>24-25</td>
+                      <td>8-20%</td>
+                      <td>Bodybuilder / Powerlifter / Haltérophile</td>
+                  </tr>
+              </table>
             </div>
-            <div class="gender">
-                <input type="radio" name="select" id="option-1" oninput="calculate()">
-                <label for="option-1">
-                    Homme
-                </label>
-                <input type="radio" name="select" id="option-2" oninput="calculate()">
-                <label for="option-2">
-                    Femme
-                </label>
-
+            <div class="col">
+              <h2>👩 Femmes</h2>
+              <table class="col table">
+                <tr>
+                      <th>FFMI</th>
+                      <th>Graisse corporelle</th>
+                      <th>Description</th>
+                  </tr>
+                  <tr>
+                      <td>14-15</td>
+                      <td>20-25%</td>
+                      <td>Femme maigre</td>
+                  </tr>
+                  <tr>
+                      <td>14-17</td>
+                      <td>22-35%</td>
+                      <td>Femme moyenne</td>
+                  </tr>
+                  <tr>
+                      <td>15-18</td>
+                      <td>30-45%</td>
+                      <td>Femme en surpoids</td>
+                  </tr>
+                  <tr>
+                      <td>16-17</td>
+                      <td>18-25%</td>
+                      <td>Athlète / Utilisatrice de salle de sport intermédiaire</td>
+                  </tr>
+                  <tr>
+                      <td>18-20</td>
+                      <td>15-22%</td>
+                      <td>Utilisatrice avancée de salle de sport</td>
+                  </tr>
+                  <tr>
+                      <td>19-21</td>
+                      <td>15-30%</td>
+                      <td>Bodybuilder / Powerlifter / Haltérophile</td>
+                  </tr>
+              </table>
             </div>
-            <div class="row">
-                <div class="col">
-                    <input type="range" min="20" max="200" id="weight" oninput="calculate()">
-                    <span id="weight-value">
-                        20 kg
-                    </span>
+          </div>
+          <div class="ffmi-calculate shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+            <h1>Calcul <b>FFMI </b></h1>
+              <div class="info">
+                <p id="ffmi-value">0</p>
+                <p id="result">Poids normal</p>
+              </div>
+      
+              <div class="inputs-container">
+                <div class="gender position-relative mx-auto p-2">
+                  <div class="option1">
+                    <input type="radio" id="men" name="gender" value=1 oninput="calculate()">
+                    <label for="men"> 👨 Homme</label><br>
+                  </div>
+                  <div class="option2">
+                    <input type="radio" id="women" name="gender" value=2 oninput="calculate()">
+                    <label for="women">👩 Femme</label><br>
+                  </div>
                 </div>
-                <div class="col">
-                    <input type="range" min="100" max="250" id="height" oninput="calculate()">
+                <div class="input-group row">
+                  <div class="col">
+                    <label for="height">Votre taille en cm</label>
+                    <input type="range" min="100" max="250" value="100" id="height" oninput="calculate()">
                     <span id="height-value">
-                        100 cm
+                      100 cm
                     </span>
-
-                </div>
-                <div class="col">
-                    <input type="range" min="1" max="80" id="bodyfat" oninput="calculate()">
-                    <span id="bodyfat-value">
-                        1 %
+                  </div>
+                  <div class="col">
+                    <label for="height">Votre poids en kg</label>
+                    <input type="range" min="20" max="200" value="20" id="weight" oninput="calculate()">
+                    <span id="weight-value">
+                      20kg
                     </span>
-
+                  </div>
+    
+                  <div class="col">
+                    <label for="bf">Votre pourcentage de masse grasse</label>
+                    <input type="range" min="1" max="80" value="1" id="bf" oninput="calculate()">
+                    <span id="bf-value">
+                      1 %
+                    </span>
+                  </div>
+    
                 </div>
+              </div>
+          </div>
 
-                </div>
-
-            </div>
-        </div>
-    </div>
+  
+      </div>
+    </section>
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </body>
 </html>
